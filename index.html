@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tabu Search Visualization for DPDP</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,"> <!-- Suppress favicon error -->
+</head>
+<body>
+  <h1>Dynamic Pickup-Delivery Tabu Search</h1>
+
+  <div id="controls">
+    <label for="iterInput">Max Iterations:</label>
+    <input type="number" id="iterInput" value="50" min="1" max="500" />
+    <label for="routeSelect">Initial Route:</label>
+    <select id="routeSelect">
+      <option value="0">Route 1 (All Pickups First)</option>
+      <option value="1">Route 2 (Immediate Delivery)</option>
+      <option value="2">Route 3 (Reverse Order)</option>
+      <option value="3">Route 4 (Mixed 1)</option>
+      <option value="4">Route 5 (Mixed 2)</option>
+    </select>
+    <button id="runButton">Run Tabu Search</button>
+  </div>
+
+  <div id="visualization">
+    <div id="canvasContainer">
+      <h3>Route Evolution (Current Solution)</h3>
+      <div id="mainCanvas"></div>
+    </div>
+    <div id="bestContainer">
+      <h3>Best Solution (After Completion)</h3>
+      <canvas id="bestCanvas" width="400" height="400"></canvas>
+    </div>
+    <div id="metrics">
+      <h3>Cost Breakdown per Iteration</h3>
+      <p class="tardiness-info">
+        <strong>How Tardiness is Calculated:</strong> For each delivery location, if the arrival time exceeds the due time, tardiness is the difference between arrival time and due time. Total tardiness is the sum for all deliveries. Arrival time is the cumulative distance traveled, assuming constant speed.
+      </p>
+      <div class="example-box">
+        <strong>Example:</strong>
+        <p>For route <code>[Depot → P1 → D1 → Depot]</code>:</p>
+        <ul>
+          <li>Distance Depot to P1: <strong>10</strong></li>
+          <li>Distance P1 to D1: <strong>15</strong></li>
+          <li>Due time for D1: <strong>20</strong></li>
+          <li>Arrival time at D1: <strong>10 + 15 = 25</strong></li>
+          <li>Tardiness: <strong>25 - 20 = 5</strong></li>
+        </ul>
+      </div>
+      <p>Iteration: <span id="iterNum">0</span></p>
+      <p>Tardiness Cost: <span id="tardinessCost">0.00</span></p>
+      <p>Average Distance: <span id="avgDist">0.00</span></p>
+      <p>Total Cost (α=2.78): <span id="totalCost">0.00</span></p>
+      <p>Initial Cost: <span id="initialCostDisplay">0.00</span></p>
+      <p>Initial Route Path: <span id="initialRoutePath">[Depot]</span></p>
+      <p>Current Route Path: <span id="routePath">[Depot]</span></p>
+      <p>Last Operator Used: <span id="lastOperator">None</span></p>
+    </div>
+    <div id="charts" class="charts-grid">
+      <div class="chart-box">
+        <h3>Total Cost Convergence</h3>
+        <div class="chart-wrapper">
+          <canvas id="costChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-box">
+        <h3>Total Cost by Algorithm</h3>
+        <div class="chart-wrapper">
+          <canvas id="algoChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

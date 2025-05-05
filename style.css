@@ -1,0 +1,168 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+h1 {
+    color: #1a1a1a;
+    font-size: 3rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#controls {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls input, #controls select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#controls button {
+    padding: 12px 30px;
+    background-color: #2962ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+#controls button:hover {
+    background-color: #1e4bd8;
+}
+
+#visualization {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#canvasContainer, #bestContainer {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#metrics {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#metrics h3 {
+    margin-top: 0;
+    color: #2962ff;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+#metrics p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tardiness-info {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.example-box {
+    background-color: #f9f9f9;
+    border-left: 4px solid #2962ff;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.example-box p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.example-box ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+    list-style: disc;
+}
+
+.example-box li {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+#charts {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.chart-box {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.2s ease;
+}
+
+.chart-box:hover {
+    transform: translateY(-5px);
+}
+
+.chart-box h3 {
+    color: #2962ff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    padding: 10px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
