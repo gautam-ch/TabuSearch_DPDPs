@@ -56,7 +56,7 @@ TC = α × tardiness + avgDistance
 ### 🔧 Clone the Repo
 
 ```bash
-git clone [repository_url]
+git clone https://github.com/gautam-ch/TabuSearch_DPDPs.git
 ```
 
 ### 🚀 Run the App
